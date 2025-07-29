@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rahulshekhawat</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="logo.png" type="image/x-icon">
+</head>
+
+<body>
+    <header>
+        <nav>
+
+            <div class="logo">
+                <img src="logo.png" alt="logo">
+                <h2>DPMR</h2>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="About.html">About</a></li>
+                    <li><a href="service.html">Service</a></li>
+                    <li><a href="Contact.html">Contact</a></li>
+                    <li><a href="login.html">Login</a></li>
+                </ul>
+                <input type="text" placeholder="search" class="search" style="border: 2px solid rgb(104, 80, 221);">
+                <button class="btn"> search</button>
+                <button onclick="menus()" class="menu">=</button>
+  <div id="menu" style=" height: 0px; overflow: hidden; transition: all 1.5s;">
+    <ul>
+        <li>About</li>
+        <li>Services</li>
+        <li>Contact</li>
+        <li>Login</li>
+    </ul>
+  </div>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <div class="card">
+
+            <div class="data">
+
+                <h1>payment</h1><br><br>
+                <div class="text" style="margin: 0px 40px;">
+
+                    <h4>name</h4>
+                    <input type="text" placeholder="enter your name" style="height: 25px; padding-left:10px; " id="text"
+                        oninput="upd()">
+                    <br><br>
+                    <h4>ATM number</h4>
+                    <input type="number" placeholder="enter your ATM card number" id="no" oninput="upd()"
+                        style="height: 25px; padding-left:10px;">
+                </div>
+                <br><br>
+                <hr>
+                <br>
+                <div class="date" style=" display: flex;  justify-content: space-between; margin: 0px 40px;">
+                    <div class="d">
+
+                        <h4>date</h4> <input type="date" placeholder="mm/dd/yyyy" style="height: 25px;" id="date"
+                            oninput="upd()">
+                    </div>
+                    <div class="c">
+
+                        <h4>cvv</h4><input type="number" placeholder="enter your cvv number" style="height: 25px;"
+                            id="cvv" oninput="upd()">
+                    </div>
+                </div>
+                <br>
+                <br>
+                <label>
+                    <input type="checkbox" name="payment" value="credit" style="margin-left: 250px;"> save my card for
+                    faster checkout
+                </label><br><br>
+                <button onclick="data()"
+                    style="width: 150px; height: 40px; background-color: black; color: white; cursor:  pointer; margin-left: 300px; border-radius: 10px;">pay
+                    $99.99</button>
+                <br>
+                <p style="margin-left: 200px;">by clicking the button you confirm to have accepted <span
+                        style="color: rgb(12, 12, 242); cursor: pointer;">terms of</span></p>
+                <br><span><a href="service.html"
+                        style="cursor: pointer; display: flex; justify-content: center;">service</span></a>
+
+            </div>
+            <div class="atm" id="atm"
+                style="width: 500px; height: 240px; color: rgb(226, 220, 220); background-color: rgb(9, 8, 8); margin: 225px 20px 0px 40px; padding: 20px 5px 10px 20px; border-radius: 15px; transform-style: preserve-3d; transition: 1s; position: relative;">
+                <div class="cd" style="display: flex;">
+                    <h3>Master Card</h3>
+                    <img src="logo.png" alt="card logo" width="25px">
+
+                </div> <br>
+                <p id="name">Name </p> <br><br>
+                <h3>Card Number</h3>
+                <p id="card-number">#### #### #### ####</p>
+                <br><br>
+                <div class="detail" style="display: flex; justify-content: space-between; padding-right: 10px;">
+                    <h5>DPMR</h5>
+                    <H5>Valid Thru</H5>
+                </div>
+                <p style="display: flex; justify-content: flex-end; padding-right: 10px;" id="valid">####</p> <br><br>
+                <div class="back">
+                    <h4 style="color:white; text-align:center;">CVV</h4>
+                    <div style="color:white; text-align:center;" id="card-cvv">###</div>
+                </div>
+            
+                    <button
+                    style="background-color: rgb(232, 232, 238); color: rgb(17, 16, 16); height: 40px; width: 150px; cursor: pointer; border-radius: 10px;"
+                    onclick="move()" >back
+                    said</button>
+                
+            </div> 
+    </main>
+    <script>
+        function data() {
+            const input = document.getElementById("text").value
+            const card = document.getElementById("no").value;
+            const valid = document.getElementById("date").value;
+            const cvv = document.getElementById("cvv").value
+            const data1 = { "text": input, "no": card, "date": valid, "cvv": cvv }
+            console.log(data1)
+        }
+        function upd() {
+
+            const name = document.getElementById("name").innerHTML = document.getElementById("text").value;
+            const number = document.getElementById("card-number").innerHTML = document.getElementById("no").value;
+            const date = document.getElementById("valid").innerHTML = document.getElementById("date").value;
+            const cvv = document.getElementById("card-cvv").innerHTML = document.getElementById("cvv").value;
+        }
+
+        function move() {
+            const card = document.getElementById("atm");
+            card.classList.toggle("back");
+        }
+function menus(){
+    const menu = document.getElementById("menu");
+    menu.style.height = "inherit"
+    menu.style.transition = "all 1s"
+    
+}
+
+
+    </script>
+</body>
+
+</html>
